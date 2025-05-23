@@ -1,0 +1,171 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Updated primary color to a richer blue */
+    --primary: 210 100% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Updated secondary to a soft gray with blue undertone */
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    /* Updated muted colors */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Updated accent */
+    --accent: 210 100% 95%;
+    --accent-foreground: 210 100% 35%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 210 100% 45%;
+
+    --radius: 0.5rem;
+
+    /* Updated sidebar colors to match the new theme */
+    --sidebar-background: 210 17% 98%;
+    --sidebar-foreground: 220 25% 26%;
+    --sidebar-primary: 210 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 50% 95%;
+    --sidebar-accent-foreground: 210 100% 35%;
+    --sidebar-border: 210 17% 93%;
+    --sidebar-ring: 210 100% 50%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    /* Updated dark mode primary */
+    --primary: 210 100% 52%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Updated dark mode secondary */
+    --secondary: 217.2 32.6% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 25%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    
+    /* Updated dark mode sidebar */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 210 100% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217.2 32.6% 25%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 210 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+}
+
+/* Enhanced utility classes */
+.animate-hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.animate-hover-shadow {
+  @apply transition-shadow duration-300 hover:shadow-lg;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Button hover animation */
+.btn-hover {
+  @apply relative overflow-hidden transition-all duration-300 before:absolute before:inset-0 before:w-full before:h-full before:bg-white/10 before:scale-x-0 before:origin-right hover:before:scale-x-100 hover:before:origin-left before:transition-transform before:duration-300;
+}
+
+/* Fix the circular dependency by using direct CSS properties instead of @apply */
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* New text gradient effect */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400;
+}
+
+/* New section styles */
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.section-heading {
+  @apply text-3xl md:text-4xl font-bold mb-6 md:mb-10 text-center;
+}
+
+/* New card styles */
+.feature-card {
+  @apply bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100;
+}
+
